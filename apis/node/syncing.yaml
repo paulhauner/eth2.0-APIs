@@ -19,11 +19,14 @@
                   properties:
                     head_slot:
                       allOf:
-                        - description: "Head slot node is trying to reach"
+                        - description: "The slot of the block at the head of the canonical chain."
                         - $ref: "../../beacon-node-oapi.yaml#/components/schemas/Uint64"
                     sync_distance:
                       allOf:
-                        - description: "How many slots node needs to process to reach head. 0 if synced."
+                        - description: "The number of slots between the local head and the best known remote head."
                         - $ref: "../../beacon-node-oapi.yaml#/components/schemas/Uint64"
+                    is_syncing:
+                      type: boolean
+                      description: "Set to true if the node is syncing, false if the node is synced."
       "500":
         $ref: '../../beacon-node-oapi.yaml#/components/responses/InternalError'
